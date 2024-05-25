@@ -1,5 +1,5 @@
 # flask路由，返回json相关
-from flask import request, jsonify, Flask, send_from_directory, Response
+from flask import request, jsonify, Flask, send_from_directory, Response, make_response
 
 # 关于跨域，不允许使用扩展库flask_cors 的情况下
 # 需要在每一个方法上加上：
@@ -30,8 +30,19 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 import os
 
 
+# 处理预检请求
+@app.before_request
+def handle_options_request():
+    if request.method == 'OPTIONS':
+        response = make_response()
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+        return response
+
+
 # 创建目标文件夹（如果不存在）
-@app.route('/test', methods=['POST'])
+@app.route('/test', methods=['PUT'])
 def test11():
     response = jsonify({
         'code': 500,
@@ -264,7 +275,7 @@ def findAllLecture():
         # courseMap = {'course_name': course.course_name}
         courseId = course.id
         # 查询教学课程
-        lectureList = Lecture.query(db).filter("course_id = %s", courseId).all()
+        lectureList = Lecture.query(db).filter("course_id = %s", courseId).filter(" is_delete = 0").all()
         # 序列化每一个类
         lectureListData = myToDir(lectureList)
         # 教学课程map
@@ -356,19 +367,61 @@ def enterEnrollment():
     lectureId = request.form.get('lecture_id')
     # level:等级,condition:状态,都有默认值,因为只是学生申请,管理员同意才能修改
     studentId = request.form.get('student_id')
-    academicYear = request.form.get('academic_year')
+    # academicYear = request.form.get('academic_year')
 
-    enrollment = Enrollment(lecture_id=lectureId, student_id=studentId, academic_year=academicYear)
+    # 获取对应lecture
+    lecture = Lecture.query(db).filter("id = %s ", lectureId).first()
+    if lecture:
+        academicYear = lecture.academic_year
+        print(academicYear)
+        enrollment = Enrollment(lecture_id=lectureId, student_id=studentId, academic_year=academicYear)
 
-    resulId = enrollment.save(db)
-    print(resulId)
-    response = jsonify({
-        'code': 200,
-        'data': True,
-        'msg': '成功提交'
-    })
-    response = set_cors_headers(response=response)
-    return response
+        resulId = enrollment.save(db)
+        print(resulId)
+        response = jsonify({
+            'code': 200,
+            'data': True,
+            'msg': '成功提交'
+        })
+        response = set_cors_headers(response=response)
+        return response
+    else:
+        response = jsonify({
+            'code': 500,
+            'data': False,
+            'msg': '没有对应教学班，检查一下？'
+        })
+        response = set_cors_headers(response=response)
+        return response
+
+
+# 删除课程
+@app.route('/enrollment/deleteEnrollment', methods=['DELETE'])
+def deleteEnrollment():
+    # 选课记录id
+    enrollmentId = request.form.get('enrollment_id')
+
+    # 获取对应enrollment
+    enrollment = Enrollment.query(db).filter("id = %s ", enrollmentId).first()
+    if enrollment:
+        # 删除
+        resultId = enrollment.delete(db)
+        print(resultId)
+        response = jsonify({
+            'code': 200,
+            'data': True,
+            'msg': '成功删除'
+        })
+        response = set_cors_headers(response=response)
+        return response
+    else:
+        response = jsonify({
+            'code': 500,
+            'data': False,
+            'msg': '没有对应选课记录，检查一下？'
+        })
+        response = set_cors_headers(response=response)
+        return response
 
 
 # 获取所教教学班、课程列表
@@ -434,17 +487,18 @@ def createLecture():
     courseId = request.form.get('course_id')
     time = request.form.get('time')
     lectureName = request.form.get('lecture_name')
+    academicYear = request.form.get('academic_year')
     # 根据课程id获取课程名字
     course = Course.query(db).filter("id = %s", courseId).first()
     if course:
         if time != '' and time != ' ' and time is not None:
             lecture = Lecture(instructor_id=instructorId, time=time,
                               course_id=courseId, lecture_name=lectureName,
-                              course_name=course.course_name)
+                              course_name=course.course_name, academic_year=academicYear)
         else:
             lecture = Lecture(instructor_id=instructorId, time=datetime.datetime.now(),
                               course_id=courseId, lecture_name=lectureName,
-                              course_name=course.course_name)
+                              course_name=course.course_name, academic_year=academicYear)
         resultId = lecture.save(db)
         print(resultId)
         response = jsonify({
@@ -1198,7 +1252,7 @@ def upload_file():
     try:
         file = request.files['file']
         if file:
-            print("接收文件+"+file.filename)
+            print("接收文件+" + file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(file_path)
             files = os.listdir(app.config['UPLOAD_FOLDER'])
