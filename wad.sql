@@ -36,7 +36,7 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` VALUES (1,'admin1','a6366adf2eef448dd906a30ea24135a7','13458769578','123@abc.com'),(9,'方任','0185cdb38869b36851067425ae7ccb81','19978066054','123@outlook.com'),(15,'admin3','59a5623f2076ab7f5dffd9c366ddcc3f','19978066054','123@outlook.com'),(16,'admin65','fcb7d7716d6d94098065b618d4a4c691','19978066054','123@outlook.com');
+INSERT INTO `admin` VALUES (1,'admin1','a6366adf2eef448dd906a30ea24135a7','13458769578','123@abc.com'),(9,'fangren','0185cdb38869b36851067425ae7ccb81','12345687955','123@outlook.com'),(15,'admin3','59a5623f2076ab7f5dffd9c366ddcc3f','11114564564','123@outlook.com'),(16,'admin65','fcb7d7716d6d94098065b618d4a4c691','12345654789','123@outlook.com');
 
 --
 -- Table structure for table `assignment`
@@ -62,7 +62,7 @@ CREATE TABLE `assignment` (
 -- Dumping data for table `assignment`
 --
 
-INSERT INTO `assignment` VALUES (1,1,'期中作业','2024-06-17 07:29:10','尽快完成',0),(2,1,'期末作业','2024-07-17 11:23:41','可以延后',0),(3,1,'平时测试1','2024-04-25 00:36:39','编写课上布置的软件需求文档作业',1),(5,1,'平时测验5','2024-04-27 20:01:56','占期末成绩的5%',1),(6,8,'期末作业2','2024-05-27 00:26:38','编写课上布置的作业',1);
+INSERT INTO `assignment` VALUES (1,1,'fianl_exam','2024-06-17 07:29:10','finish as soon as possible\n',0),(2,1,'final_exam','2024-07-17 11:23:41','Can be deferred',0),(3,1,'NormalTest1','2024-04-25 00:36:39','Write software requirement documentation assignments assigned in class',1),(5,1,'NormalTest5','2024-04-27 20:01:56','5% of the final grade',1),(6,8,'NormalTest13','2024-05-27 00:26:38','Write the homework assigned in class',1);
 
 --
 -- Table structure for table `course`
@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `id` int NOT NULL AUTO_INCREMENT,
   `course_name` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT 'course_name',
-  `description` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT 'description',
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT 'description',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -83,7 +83,7 @@ CREATE TABLE `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` VALUES (1,'高等数学A(1)','大类课'),(2,'离散数学','大类课'),(3,'编程能力提升','有趣，学习技术'),(6,'线性代数','线性代数高级课'),(7,'线性代数','线性代数高级课3');
+INSERT INTO `course` VALUES (1,'Advanced Mathematics A(1)','Broad subject'),(2,'discrete mathematics','Broad subject'),(3,'Programming enhancement','Fun, learn techniques'),(6,'linear algebra','Advanced course in linear algebra'),(7,'linear algebra','Advanced course in linear algebra3');
 
 --
 -- Table structure for table `enrollment`
@@ -126,14 +126,14 @@ CREATE TABLE `feedback_detail` (
   PRIMARY KEY (`id`),
   KEY `feedback_detail_submission_feedback_id_fk` (`submission_feedback_id`),
   CONSTRAINT `feedback_detail_submission_feedback_id_fk` FOREIGN KEY (`submission_feedback_id`) REFERENCES `submission_feedback` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `feedback_detail`
 --
 
-INSERT INTO `feedback_detail` VALUES (1,'Functionality','The software exceeds the specified requirements and performs itsintended functions exceptionally well.\n',10,8,2),(2,'Usability','The user interface is highly intuitive, user-friendly, and provides anexceptional user experience.',5,4,2),(3,'Performance','The software demonstrates outstanding efficiency andresponsiveness across all tasks and loads.',5,4,2),(4,'Adherence to project requirements','The software aligns perfectly with the project\'s defined scope,objectives, and constraints.',5,4,2),(5,'Sprint documentation quality','The documentation is thorough, meticulously organized, and exhibitsexcellent clarity and consistency.',10,8,2),(6,'Question response','The response meets or exceeds the word count requirement and iswell-structured, coherent, and engaging to read.',5,5,2);
+INSERT INTO `feedback_detail` VALUES (1,'Functionality','The software exceeds the specified requirements and performs itsintended functions exceptionally well.\n',10,8,2),(2,'Usability','The user interface is highly intuitive, user-friendly, and provides anexceptional user experience.',5,4,2),(3,'Performance','The software demonstrates outstanding efficiency andresponsiveness across all tasks and loads.',5,4,2),(4,'Adherence to project requirements','The software aligns perfectly with the project\'s defined scope,objectives, and constraints.',5,4,2),(5,'Sprint documentation quality','The documentation is thorough, meticulously organized, and exhibitsexcellent clarity and consistency.',10,9,2),(6,'Question response','The response meets or exceeds the word count requirement and iswell-structured, coherent, and engaging to read.',5,5,2);
 
 --
 -- Table structure for table `instructor`
@@ -157,7 +157,7 @@ CREATE TABLE `instructor` (
 -- Dumping data for table `instructor`
 --
 
-INSERT INTO `instructor` VALUES (1,'小美','d04e6570081e7353a953f9316140cb34',NULL,NULL,'法学'),(2,'小红','e018e21da4568ddbb018f70cb9ebafbc',NULL,NULL,'计算机'),(4,'ins1','cd93b1ffd0917368554205852c7818bf','19978066054','123@outlook.com','信息学院');
+INSERT INTO `instructor` VALUES (1,'xiaomei1','d04e6570081e7353a953f9316140cb34',NULL,NULL,'law'),(2,'xaiohong','e018e21da4568ddbb018f70cb9ebafbc',NULL,NULL,'software'),(4,'ins1','cd93b1ffd0917368554205852c7818bf','19978066054','123@outlook.com','inf');
 
 --
 -- Table structure for table `lecture`
@@ -208,7 +208,7 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` VALUES (1,'小刚','1079e43547c7a3f894a721ed8cd1c2a2',NULL,NULL,'法学'),(2,'方任','a0ccd45711ced41fb131a1fc063ef51b','19978066054','123@outlook.com','软件工程'),(4,'方业','a6366adf2eef448dd906a30ea24135a7','19978066054','123@outlook.com','');
+INSERT INTO `student` VALUES (1,'stu1','1079e43547c7a3f894a721ed8cd1c2a2',NULL,NULL,'法学'),(2,'stu2','a0ccd45711ced41fb131a1fc063ef51b','19978066054','123@outlook.com','软件工程'),(4,'stu3','a6366adf2eef448dd906a30ea24135a7','19978066054','123@outlook.com','');
 
 --
 -- Table structure for table `submission`
@@ -225,6 +225,7 @@ CREATE TABLE `submission` (
   `submit_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'submit_time',
   `description` text COMMENT 'description',
   `is_delete` tinyint(1) DEFAULT '0' COMMENT 'is_delete',
+  `file_path` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '文件相对路径',
   PRIMARY KEY (`id`),
   KEY `submission_student_id_fk` (`student_id`),
   KEY `lecture_id` (`lecture_id`),
@@ -237,7 +238,7 @@ CREATE TABLE `submission` (
 -- Dumping data for table `submission`
 --
 
-INSERT INTO `submission` VALUES (8,1,1,'期中作业','2024-04-17 04:24:53','very good',0),(9,1,1,'期中作业','2024-04-17 04:25:20','132',0),(10,1,2,'平时测验1','2024-04-20 19:24:09','A+',0),(11,1,2,'期末作业','2024-05-20 03:31:58','666',0),(14,2,2,'期末作业2','2024-05-20 08:53:34','4',0),(15,5,2,'实验3','2024-05-20 08:54:23','good',0),(16,5,1,'实验2','2024-05-20 08:59:09','nice',0),(18,5,1,'实验2','2024-05-20 09:00:03','good',0),(19,5,1,'实验4','2023-05-20 09:04:13','666',0),(20,5,1,'实验1','2024-05-20 12:06:13','',0),(21,1,2,'期末作业','2024-05-20 12:07:06','666',0),(22,5,1,'实验15','2024-05-20 12:11:34','',0),(26,5,1,'实验15','2024-05-20 12:16:07','',0),(27,5,1,'实验15','2024-05-20 12:18:31','',0);
+INSERT INTO `submission` VALUES (8,1,1,'mid-term examination','2024-04-17 04:24:53','very good',0,NULL),(9,1,1,'mid-term examination','2024-04-17 04:25:20','132',0,NULL),(10,1,2,'mid-term examination','2024-04-20 19:24:09','A+',0,NULL),(11,1,2,'final-term examination','2024-05-20 03:31:58','666',0,NULL),(14,2,2,'final-term examination','2024-05-20 08:53:34','4',0,NULL),(15,5,2,'tset1','2024-05-20 08:54:23','good',0,NULL),(16,5,1,'tset12','2024-05-20 08:59:09','nice',0,NULL),(18,5,1,'tset13','2024-05-20 09:00:03','good',0,NULL),(19,5,1,'tset5','2023-05-20 09:04:13','666',0,NULL),(20,5,1,'tset16','2024-05-20 12:06:13','',0,NULL),(21,1,2,'tset4','2024-05-20 12:07:06','666',0,NULL),(22,5,1,'tset100','2024-05-20 12:11:34','',0,NULL),(26,5,1,'tset1','2024-05-20 12:16:07','',0,NULL),(27,5,1,'tset13','2024-05-20 12:18:31','',0,NULL);
 
 --
 -- Table structure for table `submission_feedback`
@@ -274,4 +275,4 @@ INSERT INTO `submission_feedback` VALUES (1,27,'Spring 2024',40,33,0.825),(2,21,
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-26 17:02:41
+-- Dump completed on 2024-05-28 15:43:45
