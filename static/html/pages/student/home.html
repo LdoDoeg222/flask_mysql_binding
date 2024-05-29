@@ -1,0 +1,156 @@
+<div class="home">
+  <div>
+
+    <section id="courses">
+      <h2>Enrolled Lectures</h2>
+      <!-- jQuery will fill it -->
+    </section>
+
+    <section id="notifications">
+      <h2>Notifications</h2>
+      <span>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Fugiat voluptates sed impedit odio expedita praesentium voluptatem,
+        amet laborum ducimus consequatur,
+        animi suscipit alias asperiores nihil corrupti ipsum dolorum,
+        enim facere.
+
+        Voluptate neque blanditiis libero ipsa voluptatum vitae veniam,
+        expedita, molestias tempore illo sint error culpa cumque.
+        Dolore reiciendis alias,
+        reprehenderit error quo aspernatur assumenda fuga earum qui explicabo harum non.
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eius,
+        quam neque esse blanditiis aliquid consectetur cupiditate molestias amet non,
+        delectus quas, dicta itaque laudantium officiis dolores unde eveniet voluptatibus!
+
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta eveniet,
+        quis necessitatibus consequuntur amet modi!
+        Recusandae optio repellendus est corrupti,
+        repellat odio nostrum earum fugiat ipsam debitis voluptatem. Ullam, dolor.
+      </span>
+    </section>
+
+    <section id="grades">
+      <h2>Grades</h2>
+      <!-- jQuery will fill it -->
+    </section>
+
+    <section id="assignment">
+      <h2>Upcoming assignments</h2>
+      <!-- jQuery will fill it -->
+    </section>
+
+    <section id="time-table">
+      <div>
+        <h2>Time table</h2>
+        <h3>Upcoming Lectures:</h3>
+      </div>
+      <div>
+        <!-- jQuery will fill it -->
+      </div>
+    </section>
+
+
+    <section id="external">
+      <h2>External Links</h2>
+      <div>
+        <ul>
+          <li><a href="http://example.com">Student community</a></li>
+          <li><a href="http://example.com">Student tools</a></li>
+          <li><a href="http://example.com">Library</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script type="module" src="/static/js/studentHome.js">
+</script>
+
+
+<style>
+  @import '/static/styles/user-home.css';
+
+  .home {
+    #time-table {
+      display: flex;
+      position: relative;
+
+
+      h2 {
+        position: absolute;
+      }
+
+      h3 {
+        margin: auto;
+        align-self: center;
+      }
+
+      >div {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+
+        &:nth-child(2) {
+          align-items: center;
+          justify-content: space-evenly;
+
+          >div {
+            width: 100%;
+            height: 2em;
+            line-height: 2em;
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+
+            >div {
+              &:nth-child(1) {
+                margin-left: auto;
+              }
+
+              &:nth-child(2) {
+                width: 60%;
+                margin-left: 0.5em;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* grid distribution */
+    >div {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+
+      section:nth-child(3n+1) {
+        grid-row: span 3;
+      }
+
+      section:nth-child(2),
+      section:nth-child(3) {
+        grid-row: span 4;
+      }
+
+      section:nth-child(5),
+      section:nth-child(6) {
+        grid-row: span 2;
+      }
+
+      section:nth-child(3n+1) {
+        grid-column: span 1;
+      }
+
+      section:nth-child(3n+2) {
+        grid-column: span 3;
+      }
+
+      section:nth-child(3n+3) {
+        grid-column: 5 / span 1;
+      }
+    }
+  }
+</style>

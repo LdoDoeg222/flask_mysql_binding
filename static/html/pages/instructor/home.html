@@ -1,0 +1,160 @@
+<div class="home">
+  <div>
+    <section id="courses">
+      <h2>Uploaded Courses</h2>
+      <div>
+        <ul>
+          <!-- jQuery will fill it -->
+        </ul>
+      </div>
+    </section>
+
+    <section id="notifications">
+      <h2>Notifications</h2>
+      <ul>
+        <li>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Fugiat voluptates sed impedit odio expedita praesentium voluptatem,
+          amet laborum ducimus consequatur,
+          animi suscipit alias asperiores nihil corrupti ipsum dolorum,
+          enim facere.
+        </li>
+        <li>
+          Voluptate neque blanditiis libero ipsa voluptatum vitae veniam,
+          expedita, molestias tempore illo sint error culpa cumque.
+          Dolore reiciendis alias,
+          reprehenderit error quo aspernatur assumenda fuga earum qui explicabo harum non.
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eius,
+          quam neque esse blanditiis aliquid consectetur cupiditate molestias amet non,
+          delectus quas, dicta itaque laudantium officiis dolores unde eveniet voluptatibus!
+        </li>
+        <li>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta eveniet,
+          quis necessitatibus consequuntur amet modi!
+          Recusandae optio repellendus est corrupti,
+          repellat odio nostrum earum fugiat ipsam debitis voluptatem. Ullam, dolor.
+        </li>
+      </ul>
+    </section>
+
+    <section id="course-management">
+      <h2>Course Management</h2>
+      <button onclick="window.location.href = '#/instructor/courses'">Click here to manage course</button>
+    </section>
+
+    <section id="student-list">
+      <h2>Student Lists</h2>
+    </section>
+
+    <section id="lecture">
+      <h2>Add lecture</h2>
+      <form>
+      </form>
+
+    </section>
+
+    <section id="add-file">
+      <h2>Add file</h2>
+      <form class="file-attacher">
+        <div>
+          <span class="file-name">file name: </span>
+        </div>
+        <div>
+          <input type="file" id="file-input" name="file-input" style="display: none;">
+        </div>
+        <div>
+          <button> Click here to attach a file</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="student-submission">
+      <h2>Students' Submissions</h2>
+      <div>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script type="module" src="/static/js/instructorHome.js"></script>
+
+<style>
+  @import '/static/styles/user-home.css';
+
+  .home {
+
+    input,
+    button {
+      padding: 0.25em;
+    }
+
+    #lecture,
+    #add-file {
+      padding: 5% 10%;
+
+      h2 {
+        text-align: center;
+      }
+
+      form>div {
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:last-of-type {
+          margin: 16px 0;
+          justify-content: center;
+        }
+      }
+    }
+
+    /* grid distribution */
+    >div {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+
+      section:nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1/4;
+      }
+
+      section:nth-child(4) {
+        grid-column: 1 / span 2;
+        grid-row: 4/7;
+      }
+
+      section:nth-child(2) {
+        grid-column: 3 / span 4;
+        grid-row: span 4;
+      }
+
+      section:nth-child(3) {
+        grid-column: 7 / span 2;
+        grid-row: span 4
+      }
+
+      section:nth-child(5) {
+        grid-column: span 2;
+        grid-row: span 2
+      }
+
+      section:nth-child(6) {
+        grid-column: span 2;
+        grid-row: span 2
+      }
+
+      section:nth-child(7) {
+        grid-column: span 2;
+        grid-row: span 2
+      }
+    }
+
+  }
+</style>

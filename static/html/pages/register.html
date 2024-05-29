@@ -1,0 +1,52 @@
+<div class="register modal">
+  <div class="register-container">
+    <form action="">
+      <div>
+        <h1>Register</h1>
+      </div>
+      <div>
+        <label for="permission"> Permission： </label>
+        <input type="radio" title="Student" name="type" value="0" checked>
+        <label for="Student"> Student </label>
+        <input type="radio" title="Instructor" name="type" value="1">
+        <label for="Instructor"> Instructor </label>
+        <input type="radio" title="admin" name="type" value="2">
+        <label for="admin"> Administrator </label>
+      </div>
+      <div>
+        <label for="username"> User name: </label>
+        <input title="username" type="username" placeholder="Your username here" />
+      </div>
+      <div>
+        <label for="email"> e-mail: </label>
+        <input title="email" type="email" placeholder="someone@example.com" />
+      </div>
+      <div class="Instructor">
+        <label for="department"> Department: </label>
+        <input title="department" type="department" placeholder="Your department here" />
+      </div>
+      <div>
+        <label for="password"> Password: </label>
+        <input title="password" type="password" placeholder="Your password here" />
+      </div>
+      <div>
+        <label for="password_confirm"> Confirm password: </label>
+        <input title="password_confirm" type="password" placeholder="Confirm your password" />
+      </div>
+
+      <div>
+        <p class="alert"></p>
+      </div>
+      <div>
+        <input type="submit" value="Register" onclick="" />
+        <input type="button" value="Switch to login" onclick="window.location.href='#/login'">
+      </div>
+    </form>
+  </div>
+</div>
+<script type="module" src="/static/js/register.js">
+</script>
+
+<style>
+  @import 'static/styles/register.css';
+</style>

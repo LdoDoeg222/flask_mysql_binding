@@ -1,0 +1,78 @@
+<div class="submission modal">
+  <div>
+    <form action="">
+      <div>
+        <h1 class="title-text">Assignment Title</h1>
+      </div>
+      <div>
+        <h2>Description</h2>
+      </div>
+      <div>
+        <span class="description-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur veritatis nemo
+          totam quae ipsam vitae
+          asperiores rem quasi exercitationem eius illum sed repellendus error placeat suscipit ab id saepe laudantium
+          repudiandae soluta incidunt nihil, minus modi possimus. Doloremque, culpa sunt. In iure exercitationem, enim
+          quia aliquam ratione hic atque praesentium.</span>
+      </div>
+      <div>
+        <h2>Add File</h2>
+      </div>
+      <div>
+        <input type="file" class="file-input" name="file-input" style="display: none;">
+        <p class="file-attacher">
+          Click here to attach a pdf/word file.
+        </p>
+        <button class="upload-btn" type="button">Upload file</button>
+      </div>
+      <div>
+        <span class="alert-text" style="color: red;"></span>
+      </div>
+      <div>
+        <button class="submit-btn" type="submit">Submit Assignment</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+<style>
+  @import "/static/styles/modal.css";
+
+  .submission {
+    >div {
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      >div {
+        width: 100%;
+      }
+
+      .upload-btn {
+        background-color: #fff;
+        color: #000
+      }
+
+      .file-attacher {
+        cursor: pointer;
+      }
+
+      >div:first-child,
+      >div:last-child {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+
+    p {
+      border: 1px solid #000;
+    }
+  }
+</style>
+<script type="module" src="/static/js/studentSubmission.js">
+</script>

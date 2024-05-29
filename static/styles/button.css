@@ -1,0 +1,17 @@
+input[type="submit"],
+input[type="button"] {
+  width: 45%;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #0078d4;
+  box-shadow: 2px 2px 10px #aaa;
+  color: #ffffff;
+
+  &:nth-child(even) {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px #ccc;
+    color: #000;
+  }
+}

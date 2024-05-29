@@ -1,0 +1,39 @@
+<div class="login modal">
+  <div class="login-container">
+    <form action="">
+      <div>
+        <h1>Login</h1>
+      </div>
+      <div>
+        <label for="type"> Type： </label>
+        <input type="radio" title="Student" name="type" value="0" checked>
+        <label for="Student"> Student </label>
+        <input type="radio" title="Instructor" name="type" value="1">
+        <label for="Instructor"> Instructor </label>
+        <input type="radio" title="admin" name="type" value="2">
+        <label for="admin"> Administrator </label>
+      </div>
+      <div>
+        <label for="username"> username: </label>
+        <input title="username" type="username" />
+      </div>
+      <div>
+        <label for="password"> password: </label>
+        <input title="password" type="password" />
+      </div>
+      <div>
+        <p class="alert"></p>
+      </div>
+      <div>
+        <input type="submit" value="Login" onclick="" />
+        <input type="button" value="Switch to register" onclick="window.location.href='#/register'" />
+      </div>
+    </form>
+  </div>
+</div>
+<script type="module" src="/static/js/login.js">
+</script>
+
+<style>
+  @import '/static/styles/login.css';
+</style>

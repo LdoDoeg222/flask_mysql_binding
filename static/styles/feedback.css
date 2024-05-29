@@ -1,0 +1,93 @@
+.feedback {
+  > div {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    > * {
+      width: 100%;
+    }
+    h4 {
+      display: inline;
+    }
+    a {
+      border: 1px solid #aaa;
+    }
+
+    strong {
+      font-size: x-large;
+      margin: auto;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 0.5% 1%;
+      &:nth-child(1) {
+        width: 20%;
+      }
+      &:nth-child(2) {
+        width: 60%;
+      }
+      &:nth-child(3) {
+        width: 10%;
+      }
+      &:nth-child(4) {
+        width: 10%;
+      }
+      .operation {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    th {
+      background-color: #777;
+      color: #fff;
+      text-align: left;
+    }
+    td {
+      &:nth-child(2n + 1) {
+        text-align: right;
+      }
+      &:nth-child(3) {
+        > div {
+          width: 100%;
+          display: flex;
+        }
+      }
+    }
+    input {
+      width: 80%;
+    }
+    textarea {
+      width: 100%;
+    }
+  }
+  div.add-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  div.provision-total {
+    display: flex;
+    width: 100%;
+    > * {
+      padding: 0.5% 1%;
+    }
+    h4 {
+      width: 90%;
+      text-align: right;
+    }
+    div {
+      width: 8%;
+      border: 2px solid #444;
+      display: flex;
+    }
+  }
+}

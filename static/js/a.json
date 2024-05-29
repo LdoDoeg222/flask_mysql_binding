@@ -1,0 +1,46 @@
+{
+  "SubmissionFeedBackInfo": {
+    "feedback": {
+      "id": 1,
+      "provisional_total": 0.825,
+      "score_get": 33,
+      "score_total": 40,
+      "submission_id": 27,
+      "title_information": "Spring 2024"
+    },
+    "detailList": [
+      {
+        "comment": "易于上手",
+        "criteria": "易操作性",
+        "id": 1,
+        "score_get": 8,
+        "score_sum": 10,
+        "submission_feedback_id": 1
+      },
+      {
+        "comment": "简洁但有些简单",
+        "criteria": "美观度",
+        "id": 2,
+        "score_get": 6,
+        "score_sum": 10,
+        "submission_feedback_id": 1
+      },
+      {
+        "comment": "非常高！",
+        "criteria": "完成度",
+        "id": 3,
+        "score_get": 9,
+        "score_sum": 10,
+        "submission_feedback_id": 1
+      },
+      {
+        "comment": "冷启动快，几乎秒加载",
+        "criteria": "流畅度",
+        "id": 4,
+        "score_get": 10,
+        "score_sum": 10,
+        "submission_feedback_id": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+:root {
+  --my-header--height: 48px;
+
+  --my-bg-color: #eeeeee;
+  --my-bg-header-color: #dddddd;
+  --my-link-color: #666666;
+  --my-link-hover-color: #999999;
+  --my-link-active-color: #333333;
+  --my-link-visited-color: inherit;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif, "Helvetica Neue", Helvetica, Arial;
+}
+
+ol,
+ul {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+}
+
+input,
+textarea,
+button {
+  font-size: 16px;
+  box-sizing: content-box;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+#header,
+#main,
+#footer {
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+}
+
+a {
+  color: var(--my-link-color);
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:visited {
+    color: var(--my-link-visited-color);
+  }
+  &:hover {
+    color: var(--my-link-hover-color);
+  }
+  &:active {
+    color: var(--my-link-active-color);
+  }
+}
