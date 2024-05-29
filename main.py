@@ -1,5 +1,6 @@
 # flask路由，返回json相关
 from flask import request, jsonify, Flask, send_from_directory, Response, make_response
+from flask import render_template
 
 # 关于跨域，不允许使用扩展库flask_cors 的情况下
 # 需要在每一个方法上加上：
@@ -40,6 +41,10 @@ def handle_options_request():
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
 
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 @app.route('/test', methods=['PUT'])
 def test11():
